@@ -1,8 +1,8 @@
 {
   "name": "find-python-home",
   "main": "index.js",
-  "version": "0.5.0",
-  "description": "Attempts to find python on the system.",
+  "version": "0.5.1",
+  "description": "Attempts to find python's home directory on the system.",
   "author": "Joseph Spencer",
   "scripts": {
     "test": "node test.js"
@@ -14,7 +14,8 @@
   "keywords": [
     "python",
     "locate",
-    "find"
+    "find",
+    "home"
   ],
   "contributors": [],
   "license": "MIT",

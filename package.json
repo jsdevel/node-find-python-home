@@ -1,7 +1,7 @@
 {
   "name": "find-python-home",
   "main": "index.js",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Attempts to find python's home directory on the system.",
   "author": "Joseph Spencer",
   "scripts": {

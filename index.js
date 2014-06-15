@@ -9,7 +9,7 @@ var platform  = os.platform();
 var isWin = /^win/i.test(platform);
 var pythonHome;
 
-module.exports = function findPythonHome(cb){
+module.exports= function findPythonHome(cb){
   if(pythonHome)return next(cb, null, pythonHome);
 
   which('python', function(err, python){
@@ -23,8 +23,12 @@ module.exports = function findPythonHome(cb){
         + 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\2.7\\InstallPath',
         function(err, entry){
           var val;
-          if(err)return next(cb, err); 
-          val = entry.replace(/\s+/g, ' ').split(' ')[2];
+          if(err)return next(cb, err);
+          val = entry
+            .replace(/[^\r\n]+\r\n/m, '')
+            .replace(/\s+/gm, ' ')
+            .replace(/^\s+/, '')
+            .split(' ')[2];
           if(isDir(val))return (pythonHome=val), next(cb, null, val);
           else return next(cb, new Error('python not found...'));
         }
